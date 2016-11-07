@@ -1,8 +1,8 @@
 <?php
 
 define ('HOST', 'pedago02a.univ-avignon.fr') ;
-define ('USER', ''  ) ;
-define ('PASS', '' ) ;
+define ('USER', 'uapv1704233'  ) ;
+define ('PASS', 'jBL6pW' ) ;
 define ('DB', 'etd' ) ;
 
 use Doctrine\ORM\Tools\Setup;
@@ -14,7 +14,7 @@ private static $instance=null, $entityManager;
 private $error=null ;
 
 private function __construct(){
-	$config = Setup::createAnnotationMetadataConfiguration(array("../../monApplication/model/"), true);
+	$config = Setup::createAnnotationMetadataConfiguration(array("../../OurFace/model/"), true);
 
 	$param = array(
 	'dbname' => DB,
