@@ -9,3 +9,11 @@ mot1Mot2Mot3
 
 Pour les classes :
 mot1Mot2Mot3
+
+UTILITAIRES
+
+Dézipper une archive :
+tar -xvzf nom_archive.tar
+
+Récupérer le mot de passe PG :
+sudo pgresetpwd
