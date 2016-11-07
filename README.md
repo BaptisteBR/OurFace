@@ -10,6 +10,13 @@ mot1Mot2Mot3
 Pour les classes :
 mot1Mot2Mot3
 
+Pour les fichiers :
+mot1Mot2Mot3
+
+INDENTATION
+
+Utiliser les tabulations.
+
 UTILITAIRES
 
 Dézipper une archive :
