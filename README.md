@@ -13,6 +13,9 @@ mot1Mot2Mot3
 Pour les fichiers :
 mot1Mot2Mot3
 
+Pour les fichiers de classe :
+mot1Mot2Mot3.class
+
 INDENTATION
 
 Utiliser les tabulations.
