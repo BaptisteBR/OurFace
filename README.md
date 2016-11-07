@@ -27,3 +27,19 @@ tar -xvzf nom_archive.tar
 
 Récupérer le mot de passe PG :
 sudo pgresetpwd
+
+COMMANDES GIT
+
+git commit
+
+git fetch
+
+git branch
+
+git checkout
+
+git add
+
+git pull
+
+git push
