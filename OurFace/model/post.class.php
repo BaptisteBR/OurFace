@@ -14,7 +14,7 @@ class post{
 	/** @Column(type="text") */ 
 	public $texte;
 		
-	/** @Column(type="timestamp") */ 
+	/** @Column(type="datetime") */ 
 	public $date;
 
 	/** @Column(type="string", length=45) */ 

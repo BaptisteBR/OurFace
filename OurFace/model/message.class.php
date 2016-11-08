@@ -2,27 +2,39 @@
 
 /** 
  * @Entity
- * @Table(name="fredouil.post")
+ * @Table(name="fredouil.message")
  */
-class post{
+class message{
 
 	/** @Id @Column(type="integer")
 	 *  @GeneratedValue
 	 */ 
 	public $id;
 
-	/** @Column(type="text") */ 
+	/**
+	* @OneToOne(targetEntity="fredouil.utilisateur")
+	* @JoinColumn(name='emetteur', referencedColumnName ='id')
+	*/
 	public $emetteur;
 		
-	/** @Column(type="timestamp") */ 
+	/**
+	* @OneToOne(targetEntity="fredouil.utilisateur")
+	* @JoinColumn(name='destinataire', referencedColumnName ='id')
+	*/
 	public $destinataire;
 
-	/** @Column(type="string", length=45) */ 
+	/**
+	* @OneToOne(targetEntity="fredouil.utilisateur")
+	* @JoinColumn(name='parent', referencedColumnName ='id')
+	*/
 	public $parent;
 	
+	/** @Column(type="integer") */ 
 	public $post;
 
+	/** @Column(type="integer") */ 
 	public $aimer;
+
 }
 
 ?>

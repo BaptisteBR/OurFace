@@ -1,5 +1,5 @@
 <?php
-
+Use Doctrine\Common\Collections\ArrayCollection;
 /** 
  * @Entity
  * @Table(name="fredouil.utilisateur")
@@ -30,8 +30,8 @@ class utilisateur{
 	public $avatar;
 
 	/** @Column(type="datetime") */ 
-	public $date_de_naissance;
-	
+	public $date_de_naissance; 
+
 }
 
 ?>

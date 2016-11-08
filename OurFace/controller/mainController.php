@@ -16,6 +16,18 @@ class mainController{
 		return context::SUCCESS;
 	}
 
+	public static function userById($request,$context){
+		$user=utilisateurTable::getUserById(1);
+		if($user==null){
+			$context->mavariable="ID inconnu";
+		}
+		else{
+			$context->mavariable=$user;
+		}
+		return context::SUCCESS;
+	}
+
+
 	public static function submit($request,$context){
 		$user=utilisateurTable::getUserByLoginAndPass($_POST['identifiant'],$_POST['motdepasse']);
 		if(!$user){
