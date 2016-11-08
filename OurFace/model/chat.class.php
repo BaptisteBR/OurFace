@@ -4,6 +4,7 @@
  * @Entity
  * @Table(name="fredouil.chat")
  */
+/* By Baptiste */
 class chat {
 
 	/** @Id @Column(type="integer")
@@ -11,10 +12,16 @@ class chat {
 	 */
 	public $id;
 
-	/** @Column(type="integer") */ 
+	/**
+	 * @OneToOne(targetEntity="fredouil.utilisateur")
+	 * @JoinColumn(name="emetteur", referencedColumnName="id")
+	 */
 	public $emetteur;
 
-	/** @Column(type="integer") */ 
+	/**
+	 * @OneToOne(targetEntity="fredouil.post")
+	 * @JoinColumn(name="post", referencedColumnName="id")
+	 */
 	public $post;
 }
 

@@ -30,7 +30,19 @@ class utilisateur{
 	public $avatar;
 
 	/** @Column(type="datetime") */ 
-	public $date_de_naissance; 
+
+	public $date_de_naissance;
+
+	/** @OneToMany(targetEntity='fredouil.message', mappedBy='emetteur') */
+	public $messages;
+
+	/** @OneToMany(targetEntity='fredouil.chat', mappedBy='emetteur') */
+	public $chats;
+	
+	public function __construct() {
+		this->messages = new ArrayCollection();
+		this->chats = new ArrayCollection();
+	}
 
 }
 

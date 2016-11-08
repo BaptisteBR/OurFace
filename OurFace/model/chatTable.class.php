@@ -3,9 +3,9 @@
 /* Classe Outils en lien avec l'entité chat
 	composée de méthodes statiques
 */
-
+/* By Baptiste */
 class chatTable {
-
+/* By Baptiste */
 	public static function getChats() {
 		$em = dbconnection::getInstance()->getEntityManager();
 		$chatRepository = $em->getRepository('chat');
@@ -16,11 +16,18 @@ class chatTable {
 		}
 		return $chats;
 	}
-
+/* By Baptiste */
 	public static function getLastChat() {
 		$em = dbconnection::getInstance()->getEntityManager();
-		$chatRepository = $em->getRepository('chat');
-		//$chat = $chatRepository->findOneBy();
+
+		$query = $em->createQuery("
+			select * from fredouil.post where fredouil.post.id in (
+				select fredouil.chat.post from fredouil.chat where fredouil.chat.id in (
+					select max(fredouil.chat.id) from fredouil.chat
+				)
+			)
+		");
+		$chat = $query.getResult();
 
 		if($chat == false) {
 			echo 'Erreur sql';
