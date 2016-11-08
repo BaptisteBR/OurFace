@@ -23,7 +23,7 @@ class mainController{
 		}
 		else{
 			context::setSessionAttribute('user',$user);
-			$context->mavariable="Bonjour ".$user->identifiant."<input type='button' value='RIEN'></input>";
+			$context->mavariable=$user;
 		}
 		return context::SUCCESS;
 	}
