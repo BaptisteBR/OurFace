@@ -12,28 +12,31 @@ class message{
 	public $id;
 
 	/**
-	* @OneToOne(targetEntity="fredouil.utilisateur")
-	* @JoinColumn(name='emetteur', referencedColumnName ='id')
+	* @OneToOne(targetEntity="utilisateur")
+	* @JoinColumn(name="emetteur", referencedColumnName ="id")
 	*/
 	public $emetteur;
 		
 	/**
-	* @OneToOne(targetEntity="fredouil.utilisateur")
-	* @JoinColumn(name='destinataire', referencedColumnName ='id')
+	* @OneToOne(targetEntity="utilisateur")
+	* @JoinColumn(name="destinataire", referencedColumnName ="id")
 	*/
 	public $destinataire;
 
 	/**
-	* @OneToOne(targetEntity="fredouil.utilisateur")
-	* @JoinColumn(name='parent', referencedColumnName ='id')
+	* @OneToOne(targetEntity="utilisateur")
+	* @JoinColumn(name="parent", referencedColumnName ="id")
 	*/
 	public $parent;
 	
-	/** @Column(type="integer") */ 
+	/**
+	* @OneToOne(targetEntity="post")
+	* @JoinColumn(name="post", referencedColumnName ="id")
+	*/
 	public $post;
 
 	/** @Column(type="integer") */ 
-	public $aimer;
+	public $aime;
 
 }
 

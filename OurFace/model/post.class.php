@@ -11,13 +11,13 @@ class post{
 	 */ 
 	public $id;
 
-	/** @Column(type="text") */ 
+	/** @Column(type="string", length=2000) */ 
 	public $texte;
 		
 	/** @Column(type="datetime") */ 
 	public $date;
 
-	/** @Column(type="string", length=45) */ 
+	/** @Column(type="string", length=200) */ 
 	public $image;
 	
 }
