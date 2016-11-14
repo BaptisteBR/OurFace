@@ -21,13 +21,11 @@ class chatTable {
 		$em = dbconnection::getInstance()->getEntityManager();
 
 		$query = $em->createQuery("
-			select * from fredouil.post where fredouil.post.id in (
-				select fredouil.chat.post from fredouil.chat where fredouil.chat.id in (
-					select max(fredouil.chat.id) from fredouil.chat
+				select * from chat where chat.id in (
+					select max(chat.id) from chat
 				)
-			)
 		");
-		$chat = $query.getResult();
+		$chat = $query->getResult();
 
 		if($chat == false) {
 			echo 'Erreur sql';

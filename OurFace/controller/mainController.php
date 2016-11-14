@@ -8,11 +8,18 @@
 class mainController{
 
 	public static function helloWorld($request,$context){
-		$context->mavariable="hello world";
+		$lastchat=chatTable::getLastChat();
+		$context->mavariable=$lastchat->post->texte;
 		return context::SUCCESS;
 	}
 
 	public static function login($request,$context){
+		return context::SUCCESS;
+	}
+
+	public static function showmessage($request,$context){
+		$user=utilisateurTable::getUserById(1);
+		$context->mavariable=$user->messages;
 		return context::SUCCESS;
 	}
 

@@ -29,19 +29,22 @@ class utilisateur{
 	/** @Column(type="string", length=200) */ 
 	public $avatar;
 
-	/** @Column(type="datetime") */ 
-
+	/** @Column(type="string", length=200) */ 
 	public $date_de_naissance;
 
-	/** @OneToMany(targetEntity='fredouil.message', mappedBy='emetteur') */
+	/**
+	* @OneToMany(targetEntity="message", mappedBy="emetteur") 
+	*/
 	public $messages;
 
-	/** @OneToMany(targetEntity='fredouil.chat', mappedBy='emetteur') */
+	/** 
+	* @OneToMany(targetEntity="chat", mappedBy="emetteur") 
+	*/
 	public $chats;
 	
 	public function __construct() {
-		this->messages = new ArrayCollection();
-		this->chats = new ArrayCollection();
+		$this->messages = new ArrayCollection();
+		$this->chats = new ArrayCollection();
 	}
 
 }
