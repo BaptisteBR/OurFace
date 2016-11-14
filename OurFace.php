@@ -19,6 +19,14 @@ session_start();
 $context = context::getInstance();
 $context->init($nameApp);
 
+if(!empty($_SESSION['user'])) 
+{
+	$action = "connect";
+}
+else{
+	$action = "submit";
+}
+
 $view=$context->executeAction($action, $_REQUEST);
 
 //traitement des erreurs de bases, reste a traiter les erreurs d'inclusion

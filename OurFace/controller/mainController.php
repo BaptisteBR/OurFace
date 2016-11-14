@@ -17,6 +17,10 @@ class mainController{
 		return context::SUCCESS;
 	}
 
+	public static function menu($request,$context){
+		return context::SUCCESS;
+	}
+
 	public static function showmessage($request,$context){
 		$user=utilisateurTable::getUserById(1);
 		$context->mavariable=$user->messages;
@@ -39,6 +43,7 @@ class mainController{
 		$user=utilisateurTable::getUserByLoginAndPass($_POST['identifiant'],$_POST['motdepasse']);
 		if(!$user){
 			$context->mavariable="identifiant ou mot de passe incorrect";
+			return context::ERROR;
 		}
 		else{
 			context::setSessionAttribute('user',$user);
@@ -51,5 +56,11 @@ class mainController{
 			
 		return context::SUCCESS;
 	}
+
+	public static function connect($request,$context){
+			
+		return context::SUCCESS;
+	}
+	
 
 }
