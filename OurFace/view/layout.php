@@ -17,11 +17,14 @@
 	</div>
 
 <?php 
-	include("profilSuccess.php");
-	include("mur.php");
-	include("listeAmis.php");
-	include("chat.php");
-	include("deconnexion.php");
+	if (context::getSessionAttribute("user")!=null){
+		include("profilSuccess.php");
+		include("mur.php");
+		include("listeAmisSuccess.php");
+		include("chat.php");
+		include("deconnexion.php");
+	}
+
 ?>
 
 	<div id="bandeau_notification">

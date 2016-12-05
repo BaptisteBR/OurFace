@@ -4,7 +4,7 @@
 	<ul class='list-group'>
 		<li class='list-group-item disabled'> Prenom : </li>
 	<?php
-	foreach ($context->tabuser as $oneuser){
+	foreach (context::getSessionAttribute('users') as $oneuser){
 			echo "<li class='list-group-item'>".$oneuser->prenom;
 			echo "<br>";
 	 }
