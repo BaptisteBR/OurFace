@@ -41,7 +41,7 @@ class mainController{
 
 	public static function submit($request,$context){
 		$user=utilisateurTable::getUserByLoginAndPass($_POST['identifiant'],$_POST['motdepasse']);
-		if(!$user){
+		if($user===false){
 			$context->mavariable="identifiant ou mot de passe incorrect";
 			return context::ERROR;
 		}
@@ -53,7 +53,7 @@ class mainController{
 	}
 
 	public static function index($request,$context){
-			
+		
 		return context::SUCCESS;
 	}
 

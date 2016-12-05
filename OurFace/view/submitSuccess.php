@@ -1,4 +1,6 @@
-
+<script type="text/javascript">
+console.log("ici");
+</script>
 <ul>
 	<li>Bonjour <?php echo $context->mavariable->identifiant ?> </li>
 	<li> <?php echo $context->mavariable->nom ?> </li>

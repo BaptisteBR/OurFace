@@ -19,12 +19,13 @@ session_start();
 $context = context::getInstance();
 $context->init($nameApp);
 
-if(!empty($_SESSION['user'])) 
+
+if(!empty($_SESSION['user']) || $action =="submit") 
 {
-	$action = "connect";
+	//$action = "submit";
 }
 else{
-	$action = "submit";
+	$action = "connect";
 }
 
 $view=$context->executeAction($action, $_REQUEST);
