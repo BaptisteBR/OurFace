@@ -1,9 +1,11 @@
 <!-- BRIOT-RIBEYRE BAPTISTE -->
-<ul>
+
+<div id="finalmur" style="position: absolute; top: 380px;">
+<ul class='list-group' style="margin-left: 10px;">
 <?php
 foreach ( $context->mavariable->messages as $message )
 {
-	echo "<li> Message posté par "
+	echo "<li class='list-group-item'> <b> Message posté par </b> "
 		.$message->parent->nom
 		." "
 		.$message->parent->prenom
@@ -25,3 +27,6 @@ foreach ( $context->mavariable->messages as $message )
 }
 ?>
 </ul>
+</div>
+
+

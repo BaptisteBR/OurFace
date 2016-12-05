@@ -19,10 +19,7 @@
 <?php 
 	if (context::getSessionAttribute("user")!=null){
 		include("profilSuccess.php");
-		include("mur.php");
 		include("listeAmisSuccess.php");
-		include("chat.php");
-		include("deconnexion.php");
 	}
 
 ?>
