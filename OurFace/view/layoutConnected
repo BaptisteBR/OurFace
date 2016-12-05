@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +9,10 @@
    	<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<!-- j'ai le droit de mettre des commentaires dans mon fichier HTML -->
 
+<!-- ajoutez un bandeau de notification permettant d'afficher un message (de notification
+ou d'erreur) issu de l'exécution d'une action quelconque -->
 
 	<div id="menu">
 		<?php 
@@ -16,19 +20,17 @@
 		 ?>
 	</div>
 
+	<div id="profil">
+
+	</div>
+
 <?php 
-	include("profilSuccess.php");
+	include("profil.php");
 	include("mur.php");
 	include("listeAmis.php");
 	include("chat.php");
 	include("deconnexion.php");
 ?>
-
-	<div id="bandeau_notification">
-		<?php 
-		include($template_view);
-		?>
-	</div>
 
 </body>
 </html>

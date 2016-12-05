@@ -17,12 +17,43 @@ class mainController{
 		return context::SUCCESS;
 	}
 
+
+	public static function listeAmis($request,$context){
+		if (context::getSessionAttribute("user")!=null){
+			$users=utilisateurTable::getUsers();
+			$context->tabuser=$users;
+			return context::SUCCESS;
+		}
+		else{
+		}
+	}
+
+	public static function muraction($request,$context){
+		if (context::getSessionAttribute("user")!=null){
+			$user=utilisateurTable::getUserById(context::getSessionAttribute('user')->id);
+			$context->mavariable=$user;
+
+			return context::SUCCESS;
+		}
+
+	}
+
+	public static function chataction($request,$context){
+		if (context::getSessionAttribute("user")!=null){
+			$user=utilisateurTable::getUserById(context::getSessionAttribute('user')->id);
+			$context->mavariable=$user;
+
+			return context::SUCCESS;
+		}
+
+	}
+
 	public static function menu($request,$context){
 		return context::SUCCESS;
 	}
 
 	public static function showmessage($request,$context){
-		$user=utilisateurTable::getUserById(1);
+		$user=utilisateurTable::getUserById(42);
 		$context->mavariable=$user->messages;
 		return context::SUCCESS;
 	}
@@ -36,6 +67,15 @@ class mainController{
 			$context->mavariable=$user;
 		}
 		return context::SUCCESS;
+	}
+
+	public static function profil($request,$context){
+		if (context::getSessionAttribute("user")!=null){
+			//die(var_dump($context->mavariable->id));
+			$user=utilisateurTable::getUserById(context::getSessionAttribute('user')->id);
+			$context->mavariable=$user;
+			return context::SUCCESS;
+		}
 	}
 
 
@@ -58,9 +98,12 @@ class mainController{
 	}
 
 	public static function connect($request,$context){
-			
+		context::setSessionAttribute('user',null);
 		return context::SUCCESS;
 	}
 	
-
+	public static function logout($request,$context){
+		context::setSessionAttribute('user',null);
+		return context::SUCCESS;
+	}
 }

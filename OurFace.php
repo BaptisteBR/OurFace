@@ -22,7 +22,7 @@ $context->init($nameApp);
 
 if(!empty($_SESSION['user']) || $action =="submit") 
 {
-	//$action = "submit";
+	/*$action = "submit";*/
 }
 else{
 	$action = "connect";
