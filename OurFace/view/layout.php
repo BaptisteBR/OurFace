@@ -26,7 +26,7 @@ ou d'erreur) issu de l'exécution d'une action quelconque -->
 	<div id="bandeau_notification">
 		<?php 
 		include($template_view);
-		 ?>
+		?>
 	</div>
 
 
