@@ -83,7 +83,6 @@ class mainController{
 		$user=utilisateurTable::getUserByLoginAndPass($_POST['identifiant'],$_POST['motdepasse']);
 		if($user===false){
 			$context->mavariable="identifiant ou mot de passe incorrect";
-
 			return context::ERROR;
 		}
 		else{

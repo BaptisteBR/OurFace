@@ -1,6 +1,7 @@
 <!-- BRIOT-RIBEYRE BAPTISTE -->
 
-<div id="finalmur" style="position: absolute; top: 380px;">
+<div id="finalmur" style="position: absolute; width:45%; margin-left: 22%;">
+	<span class="label label-primary">Mur : </span>
 <ul class='list-group' style="margin-left: 10px;">
 <?php
 foreach ( $context->mavariable->messages as $message )
