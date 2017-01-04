@@ -39,7 +39,7 @@
       background-attachment:fixed;
       background-size: 100% 100%;
       background-repeat: no-repeat;
-      /*
+      */
     }
 
     .ui-resizable { position: relative;}
@@ -70,7 +70,9 @@
 <?php 
 	if (context::getSessionAttribute("user") != null) {
 
-    var_dump(context::getSessionAttribute("user")->nom);
+    // BUG SESSION
+    //var_dump(context::getSessionAttribute("user")->nom);
+    var_dump(utilisateurTable::getUserById(context::getSessionAttribute('user'))->nom);
 
 		include("profilSuccess.php");
 		include("listeAmisSuccess.php");
