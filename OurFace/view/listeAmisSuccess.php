@@ -1,5 +1,5 @@
 <!-- By Baptiste -->
-<div id="listeamis"  style=" position: absolute; width: 20%; margin-right: 10px; left: 75%;">
+<div id="listeamis"  >
 	<span class='label label-primary'>Liste Amis : </span>
 	<ul class='list-group'>
 		<li class='list-group-item disabled'> Prenom : </li>

@@ -8,15 +8,10 @@
 
 class mainController {
 
-	public static function helloWorld($request, $context) {
-		$lastchat = chatTable::getLastChat();
-		$context->mavariable = $lastchat->post->texte;
-		return context::SUCCESS;
-	}
+	/*Action Test */
 
-	public static function login($request, $context) {
-		return context::SUCCESS;
-	}
+
+	/* Action en Prod */
 
 
 	public static function listeAmis($request, $context) {
@@ -29,18 +24,6 @@ class mainController {
 
 		}
 	}
-
-
-
-/*
-	public static function muraction($request,$context){
-
-		
-		if (context::getSessionAttribute("user")!=null){
-			//$user=utilisateurTable::getUserById(context::getSessionAttribute('user')->id);
-			//$context->muractionVar=$user;
-			$context->muractionVar=context::getSessionAttribute('user');
-*/
 
 	public static function muraction($request, $context) {
 		if (context::getSessionAttribute("user") != null) {
@@ -69,16 +52,6 @@ class mainController {
 			
 		}
 
-	}
-
-	public static function menu($request, $context) {
-		return context::SUCCESS;
-	}
-
-	public static function showmessage($request, $context) {
-		$user = utilisateurTable::getUserById(42);
-		$context->mavariable = $user->messages;
-		return context::SUCCESS;
 	}
 
 	public static function userById($request, $context) {
@@ -114,7 +87,6 @@ class mainController {
 			$context->mavariable = "identifiant ou mot de passe incorrect";
 			return context::ERROR;
 		}
-
 /*
 		else{
 			context::setSessionAttribute('user',$user);
@@ -123,7 +95,6 @@ class mainController {
 			$users=utilisateurTable::getUsers();
 			context::setSessionAttribute('users',$users);
 */
-
 		else {
 
 			// BUG SESSION
@@ -138,11 +109,6 @@ class mainController {
 		return context::SUCCESS;
 	}
 
-
-	public static function index($request, $context) {
-		
-		return context::SUCCESS;
-	}
 
 	public static function connect($request, $context) {
 		context::setSessionAttribute('user', null);

@@ -1,18 +1,8 @@
 
 <!-- By Aurelien -->
 
-<!--
-<div id="finalchat" class="ui-widget-content" style="position: absolute; 
- left: 10px;width:20%; top : 50%;  overflow:scroll;"> -->
 
-<div id="finalchat" class="ui-widget-content" style="
-	position: absolute;
-	left: 5%;
-	width: 45%;
-	top: 50%; 
-	max-height: 30%;
-	z-index: 99999;
-	overflow: scroll;">
+<div id="finalchat" class="ui-widget-content">
 	 
 	<div id="bouton_ongletfermable">
 		<img id ="imgCroix" src="images/croix.png" onclick="afficher_cacher('finalchat');">
@@ -25,15 +15,10 @@
 		margin-left: 10px;">
 <?php
 
-/*
-foreach ( context::getSessionAttribute('user')->chats as $chat )
-	
-{
-*/
 foreach ( chatTable::getChats() as $chat ) {
 
 	echo "		<li class='list-group-item'> <b>"
-		."			<img src='images/no-image.png' style='width : 5%;'> "
+		."			<img class='profil_chat' src='images/no-image.png' > "
 		.strip_tags($chat->emetteur->nom,'')
 		." "
 		.strip_tags($chat->emetteur->prenom,'')

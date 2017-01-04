@@ -18,50 +18,40 @@
 <body>
 
 <!-- By Aurelien -->
-	<div id="menu">
+  <div id="menu">
 		<?php 
-		include("menuSuccess.php");
-		 ?>
+		  include("menuSuccess.php");
+		?>
 	</div>
 
   <div id="total_container">
 
-<?php 
-	if (context::getSessionAttribute("user") != null) {
+    <?php 
+    	if (context::getSessionAttribute("user") != null) {
+    		include("profilSuccess.php");
+    		include("listeAmisSuccess.php");
+    		include("chatactionSuccess.php");
+        include("muractionSuccess.php");
+    	}
+      else{
+        include($template_view);
+      }
 
-
-    // BUG SESSION
-    //var_dump(context::getSessionAttribute("user")->nom);
-   // var_dump(utilisateurTable::getUserById(context::getSessionAttribute('user'))->nom);
-
-
-		include("profilSuccess.php");
-		include("listeAmisSuccess.php");
-		include("chatactionSuccess.php");
-    include("muractionSuccess.php");
-	}
-
-?>
-<!--          -->
-	<div id="bandeau_notification">
-		<?php 
-		include($template_view);
-		?>
-	</div>
-
-	 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    ?>
+      
+  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-  
-  <script>
-  console.log("here");
-  $( function() {
-    $("#finalchat").draggable();
-    $("#finalchat").resizable();
-        
-  } );
-  </script>
+    <script>
+      $( function() {
+        $("#finalchat").draggable();
+        $("#finalchat").resizable();
+            
+      } );
+    </script>
 
-</div>
+  </div>
+
 </body>
+
 </html>

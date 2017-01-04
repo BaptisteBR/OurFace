@@ -9,7 +9,6 @@
             <?php
       if (context::getSessionAttribute("user")!=null){
       ?>
-      <a class="navbar-brand" href=OurFace.php?action=muraction>Mur</a>
       <a class="navbar-brand" href=OurFace.php?action=logout>Deconnection</a>
         <?php
       }else{
