@@ -70,6 +70,12 @@
 <?php 
 	if (context::getSessionAttribute("user") != null) {
 
+
+    // BUG SESSION
+    //var_dump(context::getSessionAttribute("user")->nom);
+    var_dump(utilisateurTable::getUserById(context::getSessionAttribute('user'))->nom);
+
+
 		include("profilSuccess.php");
 		include("listeAmisSuccess.php");
 		include("chatactionSuccess.php");
