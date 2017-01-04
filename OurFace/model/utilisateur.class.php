@@ -4,7 +4,7 @@ Use Doctrine\Common\Collections\ArrayCollection;
  * @Entity
  * @Table(name="fredouil.utilisateur")
  */
-class utilisateur{
+class utilisateur {
 
 	/** @Id @Column(type="integer")
 	 *  @GeneratedValue

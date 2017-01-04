@@ -16,9 +16,10 @@
 	-webkit-box-shadow: 10px 10px 5px 0px #656565;
 	-o-box-shadow: 10px 10px 5px 0px #656565;
 	box-shadow: 10px 10px 5px 0px #656565;
+
 }
 
-#submit_login{
+#submit_login {
 	margin-top: 3px;
 }
 

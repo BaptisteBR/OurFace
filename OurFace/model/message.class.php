@@ -4,7 +4,7 @@
  * @Entity
  * @Table(name="fredouil.message")
  */
-class message{
+class message {
 
 	/** @Id @Column(type="integer")
 	 *  @GeneratedValue

@@ -10,21 +10,17 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <style>
-    #imgNotif{
-
+    #imgNotif {
       width: 30px;
       height: 30px;
       z-index: 5555;
     }
-
-
-     #imgCroix{
+    #imgCroix {
       float: right;
       width: 20px;
       height: 20px;
     }
-
-    #bouton_ongletfermable{
+    #bouton_ongletfermable {
       position: absolute;
       top: 0;
       left: 0;
@@ -72,7 +68,10 @@
   <div id="total_container">
 
 <?php 
-	if (context::getSessionAttribute("user")!=null){
+	if (context::getSessionAttribute("user") != null) {
+
+    var_dump(context::getSessionAttribute("user")->nom);
+
 		include("profilSuccess.php");
 		include("listeAmisSuccess.php");
 		include("chatactionSuccess.php");

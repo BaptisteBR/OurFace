@@ -27,7 +27,7 @@ class chatTable {
 		");
 		$chat = $query->getResult();
 
-		if($chat == false) {
+		if ($chat == false) {
 			echo 'Erreur sql';
 		}
 		return $chat;
