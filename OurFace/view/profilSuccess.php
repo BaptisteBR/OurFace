@@ -1,6 +1,6 @@
 <!-- By Aurelien -->
 <div id="profil" style="position: absolute; left: 0; width: 20%; margin-left: 10px;">
-	<span class="label label-primary">Profil : </span>
+	<span class="label label-primary">Profil :</span>
 	<ul class="list-group">
 		<li class="list-group-item">
 		<?php
@@ -40,11 +40,11 @@
 		if ($currentUser->statut == null){
 		   
 		   echo "<img src='images/rondRouge.png' style='width: 20%;' >";
-		   echo "Passez en ligne";
+		   echo "Passer en ligne";
 		}
 		else{
 			echo "<img src='images/rondVert.png'>";
-			echo "Passez Hors ligne";
+			echo "Passer hors-ligne";
 		}?> 
 
 		</li>

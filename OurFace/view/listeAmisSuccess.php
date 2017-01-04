@@ -1,8 +1,8 @@
 <!-- By Baptiste -->
 <div id="listeamis"  >
-	<span class='label label-primary'>Liste Amis : </span>
+	<span class='label label-primary'>Liste d'amis :</span>
 	<ul class='list-group'>
-		<li class='list-group-item disabled'> Prenom : </li>
+		<li class='list-group-item disabled'> Prénom :</li>
 	<?php
 
 	foreach (context::getSessionAttribute('users') as $oneuser){

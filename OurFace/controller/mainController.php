@@ -90,7 +90,7 @@ class mainController {
 		}
 
 		if ($user === false) {
-			$context->mavariable = "identifiant ou mot de passe incorrect";
+			$context->mavariable = "Identifiant ou mot de passe incorrect";
 			return context::ERROR;
 		}
 /*
@@ -118,7 +118,7 @@ class mainController {
 	public static function displayFriendWall($request, $context) {
 		$friend = utilisateurTable::getUserById($_GET['friendId']);
 		if($friend === false) {
-			$context->mavariable = "ERROR";
+			$context->mavariable = "Erreur mainController";
 			return context::ERROR;
 		}
 		else {

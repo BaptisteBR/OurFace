@@ -1,7 +1,7 @@
 <!-- BRIOT-RIBEYRE BAPTISTE -->
 
 <div id="finalmur">
-	<span class="label label-primary">Mur : </span>
+	<span class="label label-primary">Mur :</span>
 <ul class='list-group' style="margin-left: 10px;">
 <?php
 

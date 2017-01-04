@@ -8,7 +8,7 @@
 		<img id ="imgCroix" src="images/croix.png" onclick="afficher_cacher('finalchat');">
 	</div>
 
-	<span class="label label-primary">Chat : </span>
+	<span class="label label-primary">Chat :</span>
 <!--             -->
 <!-- BRIOT-RIBEYRE BAPTISTE -->
 	<ul class='list-group' style="
