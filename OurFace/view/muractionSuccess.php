@@ -10,13 +10,24 @@
 foreach (utilisateurTable::getUserById(context::getSessionAttribute('user'))->messages as $message) {
 	# code...
 
-	echo "<li class='list-group-item'> <b> Message posté par </b> "
+	echo "<li class='list-group-item'>"
+		."<div class='contenairContentMur'> "
+		."<div class='imageMur'>"
+		."<img class='elementImageMur' src='images/no-image.png'>"
+		."</div>"
+		."<div class='nomMur'>"
 		.$message->parent->nom
 		." "
 		.$message->parent->prenom
-		." ("
+		."</div>"
+		."<div class='dateMur'>"
 		.$message->post->date->format('Y-m-d H:i:s')
-		.")</br>Message partagé par "
+		."</div>"
+		."<div class='contenuMur'>"
+		.$message->post->texte
+		."</div>"
+		/*."</br>Message partagé par "*/
+		/*
 		.$message->emetteur->nom
 		." "
 		.$message->emetteur->prenom
@@ -24,10 +35,10 @@ foreach (utilisateurTable::getUserById(context::getSessionAttribute('user'))->me
 		.$message->destinataire->nom
 		." "
 		.$message->destinataire->prenom
-		."</br>"
-		.$message->post->texte
 		."</br> (liked) "
 		.$message->aime
+		*/
+		."</div>"
 		."</li>";
 }
 ?>
