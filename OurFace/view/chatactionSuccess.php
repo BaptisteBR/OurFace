@@ -10,6 +10,8 @@
 	left: 5%;
 	width: 45%;
 	top: 50%; 
+	max-height: 30%;
+	z-index: 99999;
 	overflow: scroll;">
 	 
 	<div id="bouton_ongletfermable">
@@ -32,14 +34,14 @@ foreach ( chatTable::getChats() as $chat ) {
 
 	echo "		<li class='list-group-item'> <b>"
 		."			<img src='images/no-image.png' style='width : 5%;'> "
-		.$chat->emetteur->nom
+		.strip_tags($chat->emetteur->nom,'')
 		." "
-		.$chat->emetteur->prenom
+		.strip_tags($chat->emetteur->prenom,'')
 		."		</b></br>"
-		.$chat->post->texte
+		.strip_tags($chat->post->texte,'')
 		."		</b></br>"
 		."		<div style='font-size:10px; text-align:right; color: grey;'>"
-		.$chat->post->date->format('Y-m-d H:i:s')
+		.strip_tags($chat->post->date->format('Y-m-d H:i:s'),'')
 		."		</div>"
 		."		</li>";
 }

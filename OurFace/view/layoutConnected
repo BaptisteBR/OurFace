@@ -29,7 +29,7 @@
   console.log("here");
   $( function() {
     $("#finalchat").draggable();
-    //$( "#resizable" ).resizable();
+    $( "#resizable" ).resizable();
         
   } );
   </script>
@@ -52,9 +52,11 @@ ou d'erreur) issu de l'exécution d'une action quelconque -->
 	</div>
 <!-- By Aurelien -->
 <?php 
+/*
 	include("profil.php");
 	include("mur.php");
 	include("listeAmis.php");
+  */
 	include("chat.php");
 	include("deconnexion.php");
 ?>
