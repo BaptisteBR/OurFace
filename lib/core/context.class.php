@@ -1,5 +1,4 @@
 <?php
-
 class context{
     private $data;
     const SUCCESS="Success";

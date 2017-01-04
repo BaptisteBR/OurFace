@@ -8,27 +8,43 @@ require_once 'lib/core.php';
 require_once $nameApp.'/controller/mainController.php';
 
 
+if (!isset($_SESSION)) {
+	session_start();
+}
+
 //action par défaut
 $action = "index";
 
 if(key_exists("action", $_REQUEST))
 	$action =  $_REQUEST['action'];
 
-session_start();
+//session_start();
 
 $context = context::getInstance();
 $context->init($nameApp);
 
+if ($action == "submit") {
 
+}
+else {
+	if (!empty($_SESSION['user'])) {
+
+	}
+	else {
+		$action = "connect";
+	}
+}
+
+/*
 if(!empty($_SESSION['user']) || $action =="submit") 
 {
-	/*$action = "submit";*/
+	//$action = "submit";
 }
 else{
 	$action = "connect";
 }
-
-$view=$context->executeAction($action, $_REQUEST);
+*/
+$view = $context->executeAction($action, $_REQUEST);
 
 //traitement des erreurs de bases, reste a traiter les erreurs d'inclusion
 if($view===false){

@@ -19,9 +19,6 @@ class chatTable {
 /* By Baptiste */
 	public static function getLastChat() {
 		$em = dbconnection::getInstance()->getEntityManager();
-
-		$
-
 		$query = $em->createQuery("
 				select * from fredouil.chat where fredouil.chat.id in (
 					select max(fredouil.chat.id) from fredouil.chat
@@ -29,7 +26,7 @@ class chatTable {
 		");
 		$chat = $query->getResult();
 
-		if($chat == false) {
+		if ($chat == false) {
 			echo 'Erreur sql';
 		}
 		return $chat;

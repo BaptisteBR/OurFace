@@ -6,12 +6,12 @@
 
 class messageTable {
 
-	public static function getMessagesByUserId($id){
-		$em = dbconnection::getInstance()->getEntityManager() ;
+	public static function getMessagesByUserId($id) {
+		$em = dbconnection::getInstance()->getEntityManager();
 		$userRepository = $em->getRepository('message');
 		$user = $userRepository->findByEmetteur(array('id' => $id));	
 		
-		if ($user == false){
+		if ($user == false) {
 			echo 'Erreur sql';
 		}
 		return $user; 
