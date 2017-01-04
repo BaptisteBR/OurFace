@@ -5,9 +5,17 @@
 <ul class='list-group' style="margin-left: 10px;">
 <?php
 
+$currentUser = null;
+if(context::getSessionAttribute('friend') != null) {
+	$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('friend'));
+}
+else {
+	$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('user'));
+}
+
 // BUG SESSION
 //foreach ( $context->muractionVar->messages as $message )
-foreach (utilisateurTable::getUserById(context::getSessionAttribute('user'))->messages as $message) {
+foreach ($currentUser->messages as $message) {
 	# code...
 
 	echo "<li class='list-group-item'> <b> Message posté par </b> "

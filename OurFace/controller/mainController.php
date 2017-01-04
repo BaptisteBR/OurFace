@@ -8,9 +8,6 @@
 
 class mainController {
 
-	/*Action Test */
-
-
 	/* Action en Prod */
 
 
@@ -82,7 +79,16 @@ class mainController {
 
 
 	public static function submit($request, $context) {
-		$user = utilisateurTable::getUserByLoginAndPass($_POST['identifiant'], $_POST['motdepasse']);
+
+		//$user = utilisateurTable::getUserByLoginAndPass($_POST['identifiant'], $_POST['motdepasse']);
+		$user = null;
+		if(context::getSessionAttribute('user') == null) {
+			$user = utilisateurTable::getUserByLoginAndPass($_POST['identifiant'], $_POST['motdepasse']);
+		}
+		else {
+			$user = utilisateurTable::getUserById(context::getSessionAttribute('user'));
+		}
+
 		if ($user === false) {
 			$context->mavariable = "identifiant ou mot de passe incorrect";
 			return context::ERROR;
@@ -105,6 +111,20 @@ class mainController {
 			$users = utilisateurTable::getUsers();
 			context::setSessionAttribute('users', $users);
 
+		}
+		return context::SUCCESS;
+	}
+
+	public static function displayFriendWall($request, $context) {
+		$friend = utilisateurTable::getUserById($_GET['friendId']);
+		if($friend === false) {
+			$context->mavariable = "ERROR";
+			return context::ERROR;
+		}
+		else {
+			context::setSessionAttribute('friend', $friend->id);
+			$users = utilisateurTable::getUsers();
+			context::setSessionAttribute('users', $users);
 		}
 		return context::SUCCESS;
 	}
