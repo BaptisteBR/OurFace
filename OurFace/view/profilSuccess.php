@@ -3,11 +3,19 @@
 	<span class="label label-primary">Profil : </span>
 	<ul class="list-group">
 		<li class="list-group-item">
-		<?php 
+		<?php
+
+		$currentUser = null;
+		if(context::getSessionAttribute('friend') != null) {
+			$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('friend'));
+		}
+		else {
+			$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('user'));
+		}
 
 		// BUG SESSION
 		//if (context::getSessionAttribute('user')->avatar == null){
-		if (utilisateurTable::getUserById(context::getSessionAttribute('user'))->avatar == null){
+		if ($currentUser->avatar == null){
 
 		   echo "<img src='images/no-image.png' style='width: 90%; height: 90%;'>";
 		}
@@ -15,21 +23,21 @@
 
 			// BUG SESSION
 			//echo context::getSessionAttribute('user')->avatar;
-			echo utilisateurTable::getUserById(context::getSessionAttribute('user'))->avatar;
+			echo $currentUser->avatar;
 
 		}?> 
 		</li>
 
 		<!-- BUG SESSION -->
-		<li class="list-group-item"> <?php /*echo context::getSessionAttribute('user')->nom*/echo utilisateurTable::getUserById(context::getSessionAttribute('user'))->nom ?> </li>
-		<li class="list-group-item"> <?php /*echo context::getSessionAttribute('user')->prenom*/ utilisateurTable::getUserById(context::getSessionAttribute('user'))->prenom ?> </li>
+		<li class="list-group-item"> <?php /*echo context::getSessionAttribute('user')->nom*/echo $currentUser->nom ?> </li>
+		<li class="list-group-item"> <?php /*echo context::getSessionAttribute('user')->prenom*/ $currentUser->prenom ?> </li>
 		
 		<li class="list-group-item">
 		<?php 
 		
 		// BUG SESSION
 		//if ( context::getSessionAttribute('user')->statut == null){
-		if (utilisateurTable::getUserById(context::getSessionAttribute('user'))->statut == null){
+		if ($currentUser->statut == null){
 		   
 		   echo "<img src='images/rondRouge.png' style='width: 20%;' >";
 		   echo "Passez en ligne";
