@@ -4,7 +4,13 @@
 	<span class="label label-primary">Mur : </span>
 <ul class='list-group' style="margin-left: 10px;">
 <?php
-foreach ( $context->muractionVar->messages as $message )
+
+// BUG SESSION
+//foreach ( $context->muractionVar->messages as $message )
+foreach (utilisateurTable::getUserById(context::getSessionAttribute('user'))->messages as $message) {
+	# code...
+}
+
 {
 	echo "<li class='list-group-item'> <b> Message posté par </b> "
 		.$message->parent->nom
