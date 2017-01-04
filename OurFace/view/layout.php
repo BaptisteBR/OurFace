@@ -34,6 +34,18 @@
       margin: 0;
     }
 
+
+    body{
+      height: 80%;
+      width: 100%;
+      /*
+      background-image: url(images/fond.jpg);
+      background-attachment:fixed;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      /*
+    }
+
     .ui-resizable { position: relative;}
     .ui-resizable-handle { position: absolute;font-size: 0.1px; display: block; }
     .ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
@@ -57,11 +69,14 @@
 		 ?>
 	</div>
 
+  <div id="total_container">
+
 <?php 
 	if (context::getSessionAttribute("user")!=null){
 		include("profilSuccess.php");
 		include("listeAmisSuccess.php");
 		include("chatactionSuccess.php");
+    include("muractionSuccess.php");
 	}
 
 ?>
@@ -80,10 +95,11 @@
   console.log("here");
   $( function() {
     $("#finalchat").draggable();
-    $( "#finalchat").resizable();
+    $("#finalchat").resizable();
         
   } );
   </script>
 
+</div>
 </body>
 </html>

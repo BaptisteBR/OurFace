@@ -4,7 +4,7 @@
 	<span class="label label-primary">Mur : </span>
 <ul class='list-group' style="margin-left: 10px;">
 <?php
-foreach ( $context->mavariable->messages as $message )
+foreach ( $context->muractionVar->messages as $message )
 {
 	echo "<li class='list-group-item'> <b> Message posté par </b> "
 		.$message->parent->nom

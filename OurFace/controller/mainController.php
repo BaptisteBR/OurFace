@@ -29,21 +29,17 @@ class mainController{
 	}
 
 	public static function muraction($request,$context){
+
+		
 		if (context::getSessionAttribute("user")!=null){
-			$user=utilisateurTable::getUserById(context::getSessionAttribute('user')->id);
-			$context->mavariable=$user;
+			//$user=utilisateurTable::getUserById(context::getSessionAttribute('user')->id);
+			//$context->muractionVar=$user;
+			$context->muractionVar=context::getSessionAttribute('user');
 
 			return context::SUCCESS;
 		}
-
-	}
-
-	public static function chataction($request,$context){
-		if (context::getSessionAttribute("user")!=null){
-			$user=utilisateurTable::getUserById(context::getSessionAttribute('user')->id);
-			$context->mavariable=$user;
-
-			return context::SUCCESS;
+		else{
+			
 		}
 
 	}
@@ -69,14 +65,7 @@ class mainController{
 		return context::SUCCESS;
 	}
 
-	public static function profil($request,$context){
-		if (context::getSessionAttribute("user")!=null){
-			//die(var_dump($context->mavariable->id));
-			$user=utilisateurTable::getUserById(context::getSessionAttribute('user')->id);
-			$context->mavariable=$user;
-			return context::SUCCESS;
-		}
-	}
+
 
 
 	public static function submit($request,$context){
@@ -87,7 +76,8 @@ class mainController{
 		}
 		else{
 			context::setSessionAttribute('user',$user);
-			$context->mavariable=$user;
+			$context->mavarlayout=$user;
+
 			$users=utilisateurTable::getUsers();
 			context::setSessionAttribute('users',$users);
 		}
@@ -95,7 +85,6 @@ class mainController{
 	}
 
 	public static function index($request,$context){
-		
 		return context::SUCCESS;
 	}
 

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 //nom de l'application
 $nameApp = "OurFace";
@@ -14,7 +15,7 @@ $action = "index";
 if(key_exists("action", $_REQUEST))
 	$action =  $_REQUEST['action'];
 
-session_start();
+//session_start();
 
 $context = context::getInstance();
 $context->init($nameApp);
@@ -26,6 +27,7 @@ if(!empty($_SESSION['user']) || $action =="submit")
 }
 else{
 	$action = "connect";
+
 }
 
 $view=$context->executeAction($action, $_REQUEST);

@@ -20,8 +20,6 @@ class chatTable {
 	public static function getLastChat() {
 		$em = dbconnection::getInstance()->getEntityManager();
 
-		$
-
 		$query = $em->createQuery("
 				select * from fredouil.chat where fredouil.chat.id in (
 					select max(fredouil.chat.id) from fredouil.chat

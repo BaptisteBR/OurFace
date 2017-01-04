@@ -1,4 +1,4 @@
-<!-- By Aurelien -->
+<!-- By Baptiste -->
 <div id="listeamis"  style=" position: absolute; width: 20%; margin-right: 10px; left: 75%;">
 	<span class='label label-primary'>Liste Amis : </span>
 	<ul class='list-group'>

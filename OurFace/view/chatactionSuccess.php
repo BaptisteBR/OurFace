@@ -1,7 +1,7 @@
 
 <!-- By Aurelien -->
 <div id="finalchat" class="ui-widget-content" style="position: absolute; 
- left: 5%;width:45%; top : 50%;  overflow:scroll;">
+ left: 10px;width:20%; top : 50%;  overflow:scroll;">
 	 
          <div id="bouton_ongletfermable" >
           <img id ="imgCroix" src="images/croix.png" onclick="afficher_cacher('finalchat');">
@@ -12,7 +12,7 @@
 <!-- BRIOT-RIBEYRE BAPTISTE -->
 	<ul class='list-group' style="margin-left: 10px;">
 <?php
-foreach ( $context->mavariable->chats as $chat )
+foreach ( context::getSessionAttribute('user')->chats as $chat )
 {
 	echo "		<li class='list-group-item'> <b>"
 		."			<img src='images/no-image.png' style='width : 5%;'> "
@@ -37,7 +37,7 @@ echo "		<li class='list-group-item'> <b>"
 ?>
 </ul>
 </div>
-
+<!-- By Aurelien -->
 <script>
  function afficher_cacher(id)
 {
