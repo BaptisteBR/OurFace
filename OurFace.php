@@ -1,5 +1,9 @@
 <?php
 
+if(!isset($_SESSION)) {
+	session_start();
+}
+
 //nom de l'application
 $nameApp = "OurFace";
 
@@ -7,13 +11,15 @@ $nameApp = "OurFace";
 require_once 'lib/core.php';
 require_once $nameApp.'/controller/mainController.php';
 
-
+/*
 if(!isset($_SESSION)) {
 	session_start();
 }
+*/
 
 //action par défaut
-$action = "index";
+//$action = "index";
+$action = "connect";
 
 if(key_exists("action", $_REQUEST))
 	$action =  $_REQUEST['action'];
@@ -21,9 +27,11 @@ if(key_exists("action", $_REQUEST))
 $context = context::getInstance();
 $context->init($nameApp);
 
+/*
 if($action != "submit" && empty($_SESSION['user'])) {
 	$action = "connect";
 }
+*/
 
 $view = $context->executeAction($action, $_REQUEST);
 
@@ -37,10 +45,6 @@ if($view===false){
 elseif($view!=context::NONE){
 	$template_view=$nameApp."/view/".$action.$view.".php";
 	include($nameApp."/view/".$context->getLayout().".php");
-}
-
-else {
-	include($nameApp."/view/.php");
 }
 
 ?>

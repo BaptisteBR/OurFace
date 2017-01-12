@@ -30,7 +30,7 @@
 
 		<!-- BUG SESSION -->
 		<li class="list-group-item"> <?php /*echo context::getSessionAttribute('user')->nom*/echo $currentUser->nom ?> </li>
-		<li class="list-group-item"> <?php /*echo context::getSessionAttribute('user')->prenom*/ $currentUser->prenom ?> </li>
+		<li class="list-group-item"> <?php /*echo context::getSessionAttribute('user')->prenom*/echo $currentUser->prenom ?> </li>
 		
 		<li class="list-group-item">
 		<?php 
