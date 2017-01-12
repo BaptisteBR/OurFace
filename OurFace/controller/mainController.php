@@ -130,6 +130,7 @@ class mainController {
 	}
 
 	public static function publishMessageOnWall($request, $context) {
+		/*
 		$message = $_POST['message'];
 		$user = context::getSessionAttribute('user');
 		if(empty($_GET['friendId'])) {
@@ -149,6 +150,7 @@ class mainController {
 		context::setSessionAttribute('users', $users);
 
 		return context::SUCCESS;
+		*/
 	}
 
 

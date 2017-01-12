@@ -11,14 +11,12 @@
 
 	foreach (context::getSessionAttribute('users') as $oneuser){
 
-
 			echo "<li class='list-group-item'><a href='OurFace.php?action=displayFriendWall&friendId=".$oneuser->id."'>".$oneuser->prenom." ".$oneuser->nom."</a></li>";
 			
 
 			//echo "<li class='list-group-item'><a href='OurFace.php?action=displayFriendWall&friendId=".$oneuser->id."'>".$oneuser->prenom."</a></li>";
 
 			//echo "<li class='list-group-item'><a>".$oneuser->prenom."</a></li>";
-
 
 
 	 }

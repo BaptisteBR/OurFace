@@ -6,9 +6,11 @@
 $currentUser = null;
 if(context::getSessionAttribute('friend') != null) {
 	$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('friend'));
+	//echo '<form action="OurFace.php?action=publishMessageOnWall&friendId='.$currentUser->id.'" method="post">';
 }
 else {
 	$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('user'));
+	//echo '<form action="OurFace.php?action=publishMessageOnWall" method="post">';
 }
 
 // BUG SESSION
@@ -16,6 +18,13 @@ else {
 foreach ($currentUser->messages as $message) {
 
 ?>
+
+	<!--<form>
+	<form action="OurFace.php?action=publishMessageOnWall" method="post">
+		<p>Message :<input type="textarea" name="message" placeholder="Ecrivez votre message ..." /></p>
+	 	<p><input type="submit" value="Publier"></p>
+	</form>-->
+
 
 	<div class="panel panel-default">
         <div class="panel-body">

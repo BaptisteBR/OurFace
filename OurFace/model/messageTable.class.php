@@ -18,7 +18,7 @@ class messageTable {
 	}
 
 	public static function addMessage($idEmetteur, $idDestinataire, $idParent, $message) {
-
+		/*
 		$emetteur = getUserById($idEmetteur);
 		$destinataire = getUserById($idDestinataire);
 		$parent = getUserById($idParent);
@@ -37,7 +37,7 @@ class messageTable {
 				
 		$em->persist($message);
 		$em.flush();
-
+		*/
 	}
 }
 

@@ -52,9 +52,10 @@
 
 </body>
 
-  <?php
+</html>
+
+<?php
+
     // Permet de supprimer l'identifiant correspondant à un ami
     context::setSessionAttribute('friend', null);
-  ?>
-
-</html>
+?>
