@@ -2,25 +2,20 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <!--<a class="navbar-brand" href=OurFace.php?action=connect>-->
 
-      <?php
-
-        if(context::getSessionAttribute('user') == null) {
-          echo "<a class='navbar-brand' href='OurFace.php?action=connect'>";
-        }
-        else {
-          echo "<a class='navbar-brand' href='OurFace.php?action=submit'>";
-        }
-
-      ?>
+<?php
+if(context::getSessionAttribute('user') == null) {
+  echo "<a class='navbar-brand' href='OurFace.php?action=connect'>";
+}
+else {
+  echo "<a class='navbar-brand' href='OurFace.php?action=submit'>";
+}
+?>
 
 
-
-      <!--<a class="navbar-brand" href="OurFace.php?action=submit">-->
         <img alt="OurFace" src="">
-      	
       </a>
+
 
       <a class='navbar-brand' href=''> Amis </a>
             <?php
@@ -35,6 +30,7 @@
       }
       ?>
       
+
     </div>
   </div>
 </nav>

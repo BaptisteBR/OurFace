@@ -67,7 +67,7 @@ body{
 @media (min-width: 400px) {
 
 	#profil{
-		position: absolute; 
+		position: block; 
 		left: 0; 
 		width: 20%; 
 		margin-left: 10px;

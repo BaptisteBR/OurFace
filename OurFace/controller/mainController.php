@@ -90,7 +90,7 @@ class mainController {
 		}
 
 		if ($user === false) {
-			$context->mavariable = "identifiant ou mot de passe incorrect";
+			$context->mavariable = "Identifiant ou mot de passe incorrect";
 			return context::ERROR;
 		}
 /*
@@ -118,7 +118,7 @@ class mainController {
 	public static function displayFriendWall($request, $context) {
 		$friend = utilisateurTable::getUserById($_GET['friendId']);
 		if($friend === false) {
-			$context->mavariable = "ERROR";
+			$context->mavariable = "Erreur mainController";
 			return context::ERROR;
 		}
 		else {
@@ -126,6 +126,28 @@ class mainController {
 			$users = utilisateurTable::getUsers();
 			context::setSessionAttribute('users', $users);
 		}
+		return context::SUCCESS;
+	}
+
+	public static function publishMessageOnWall($request, $context) {
+		$message = $_POST['message'];
+		$user = context::getSessionAttribute('user');
+		if(empty($_GET['friendId'])) {
+			
+			messageTable::addMessage($user->id, $user->id, $user->id, $message);
+
+		}
+		else {
+			$friend = utilisateurTable::getUserById($_GET['friendId']);
+			context::setSessionAttribute('friend', $friend->id);
+			
+			messageTable::addMessage($user->id, $friend->id, $user->id, $message);
+
+		}
+
+		$users = utilisateurTable::getUsers();
+		context::setSessionAttribute('users', $users);
+
 		return context::SUCCESS;
 	}
 

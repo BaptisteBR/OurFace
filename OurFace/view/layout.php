@@ -14,60 +14,46 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
+  <div id="total_container" class='mainbody container-fluid'>
+    <div class="row">
+      <div id="menu">
+		  <?php 
+		      include("menuSuccess.php");
+		  ?>
+	    </div>
 
-
-
-
-<!-- By Aurelien -->
-  <div id="menu">
-		<?php 
-		  include("menuSuccess.php");
-		?>
-	</div>
-
-
-  <div id="total_container">
-
-    <?php 
-    	if (context::getSessionAttribute("user") != null) {
-    		include("profilSuccess.php");
-    		include("listeAmisSuccess.php");
-        include("muractionSuccess.php");
-    		include("chatactionSuccess.php");
-
-    	}
-      else{
-        include($template_view);
-      }
-
-    ?>
+      <?php 
+    	    if (context::getSessionAttribute("user") != null) {
+        		  include("profilSuccess.php");
+              include("muractionSuccess.php");
+        		  include("listeAmisSuccess.php");
+        		  include("chatactionSuccess.php");
+    	    }
+          else{
+              include($template_view);
+          }
+      ?>
       
-
-
+  </div>
+</div>
     <script>
       $( function() {
         $("#finalchat").draggable();
         $("#finalchat").resizable();
             
       } );
-
       $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
     </script>
-
-  </div>
 
 </body>
 
   <?php
-
     // Permet de supprimer l'identifiant correspondant à un ami
-
     context::setSessionAttribute('friend', null);
   ?>
 

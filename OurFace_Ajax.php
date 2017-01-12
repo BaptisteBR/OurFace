@@ -1,9 +1,5 @@
 <?php
 
-
-if(!isset($_SESSION)) {
-	session_start();
-}
 //nom de l'application
 $nameApp = "OurFace";
 
@@ -11,11 +7,11 @@ $nameApp = "OurFace";
 require_once 'lib/core.php';
 require_once $nameApp.'/controller/mainController.php';
 
-/*
+
 if(!isset($_SESSION)) {
 	session_start();
 }
-*/
+
 //action par défaut
 $action = "index";
 
@@ -38,11 +34,8 @@ if($view===false){
 }
 
 //inclusion du layout qui va lui meme inclure le template view
-elseif($view!=context::NONE){
-	$template_view=$nameApp."/view/".$action.$view.".php";
-	include($nameApp."/view/".$context->getLayout().".php");
+elseif($view==context::NONE){
+	include($nameApp."/view/".$action.$view.".php");
 }
-
-
 
 ?>

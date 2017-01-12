@@ -5,8 +5,7 @@
 */
 
 class postTable {
-
-
+	
 }
 
 ?>

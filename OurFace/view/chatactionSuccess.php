@@ -38,7 +38,7 @@
                       <div class="direct-chat-text">
                         <?php echo strip_tags($chat->post->texte,'')  ?>
                       </div>
-					  <div class="direct-chat-info clearfix">
+					            <div class="direct-chat-info clearfix">
                         <span class="direct-chat-timestamp pull-right"><?php echo strip_tags($chat->post->date->format('Y-m-d H:i:s'),'') ?></span>
                       </div>
                       <!-- /.direct-chat-text -->

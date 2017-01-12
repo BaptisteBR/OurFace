@@ -1,6 +1,5 @@
 <!-- By Aurelien -->
 
-
 		<?php
 
 		$currentUser = null;
@@ -13,25 +12,20 @@
 
 		?>
 
-				<!-- BUG SESSION -->
-		
-
-
-        
-        <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+        <div class="col-lg-3 col-md-8 col-sm-12 col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="media">
                         <div align="center">
                             <img class="thumbnail img-responsive" src=<?php
-		if ($currentUser->avatar == null){
-		   echo "images/no-image.png";
-		}
-		else{
-			echo $currentUser->avatar;
+								if ($currentUser->avatar == null){
+								   echo "images/no-image.png";
+								}
+								else{
+									echo $currentUser->avatar;
 
-		}?> 
-		width="300px" height="300px">
+								}?> 
+							width="300px" height="300px">
                         </div>
                         <div class="media-body">
                             <hr>
@@ -51,6 +45,7 @@
          Afficher Chat <img id ="imgNotif" src="images/notif.png">   (1)</p>
 
 
+
         </div>
                             <hr>
                         </div>
@@ -58,3 +53,4 @@
                 </div>
             </div>
         </div>
+
