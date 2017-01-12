@@ -12,25 +12,24 @@ else {
 }
 ?>
 
+
         <img alt="OurFace" src="">
       </a>
 
-<?php
-if (context::getSessionAttribute("user")!=null){
-?>
 
-      <a class="navbar-brand" href="OurFace.php?action=logout">Déconnexion</a>
-
-<?php
-}
-else{
-?>
-
-      <a class="navbar-brand" href="OurFace.php?action=connect">Connexion</a>
-
-<?php
-}
-?>
+      <a class='navbar-brand' href=''> Amis </a>
+            <?php
+      if (context::getSessionAttribute("user")!=null){
+      ?>
+      <a class="navbar-brand" href="OurFace.php?action=logout">Deconnection</a>
+        <?php
+      }else{
+        ?>
+        <a class="navbar-brand" href="OurFace.php?action=connect">Connection</a>
+         <?php
+      }
+      ?>
+      
 
     </div>
   </div>

@@ -46,5 +46,4 @@ elseif($view!=context::NONE){
 	$template_view=$nameApp."/view/".$action.$view.".php";
 	include($nameApp."/view/".$context->getLayout().".php");
 }
-
 ?>
