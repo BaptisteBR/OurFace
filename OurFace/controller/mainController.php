@@ -129,6 +129,28 @@ class mainController {
 		return context::SUCCESS;
 	}
 
+	public static function publishMessageOnWall($request, $context) {
+		$message = $_POST['message'];
+		$user = context::getSessionAttribute('user');
+		if(empty($_GET['friendId'])) {
+			
+			messageTable::addMessage($user->id, $user->id, $user->id, $message);
+
+		}
+		else {
+			$friend = utilisateurTable::getUserById($_GET['friendId']);
+			context::setSessionAttribute('friend', $friend->id);
+			
+			messageTable::addMessage($user->id, $friend->id, $user->id, $message);
+
+		}
+
+		$users = utilisateurTable::getUsers();
+		context::setSessionAttribute('users', $users);
+
+		return context::SUCCESS;
+	}
+
 
 	public static function connect($request, $context) {
 		context::setSessionAttribute('user', null);

@@ -30,8 +30,8 @@
     	if (context::getSessionAttribute("user") != null) {
     		include("profilSuccess.php");
     		include("listeAmisSuccess.php");
-    		include("chatactionSuccess.php");
         include("muractionSuccess.php");
+    		include("chatactionSuccess.php");
     	}
       else{
         include($template_view);
