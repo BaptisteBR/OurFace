@@ -15,10 +15,14 @@
 
       ?>
 
+
+
       <!--<a class="navbar-brand" href="OurFace.php?action=submit">-->
         <img alt="OurFace" src="">
       	
       </a>
+
+      <a class='navbar-brand' href=''> Amis </a>
             <?php
       if (context::getSessionAttribute("user")!=null){
       ?>
@@ -30,6 +34,7 @@
          <?php
       }
       ?>
+      
     </div>
   </div>
 </nav>

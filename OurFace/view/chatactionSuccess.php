@@ -1,57 +1,76 @@
 
+
 <!-- By Aurelien -->
 
 
-<div id="finalchat" class="ui-widget-content">
-	 
-	<div id="bouton_ongletfermable">
-		<img id ="imgCroix" src="images/croix.png" onclick="afficher_cacher('finalchat');">
-	</div>
+<div class="popup-box chat-popup" id="qnimate">
+    		  <div class="popup-head">
+    		  	<p> Chat </p>
+				<button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-off"></i></button>
+			  </div>
+			<div class="popup-messages">
 
-	<span class="label label-primary">Chat : </span>
-<!--             -->
-<!-- BRIOT-RIBEYRE BAPTISTE -->
-	<ul class='list-group' style="
-		margin-left: 10px;">
-<?php
+			<div class="direct-chat-messages">
+					<div class="chat-box-single-line">
+						<abbr class="timestamp">October 8th, 2015</abbr>
+					</div>
+		<?php 		
+		$cpt=0;
+		foreach ( chatTable::getChats() as $chat ) {
+			$cpt++;
+				if ($cpt<100){
 
-foreach ( chatTable::getChats() as $chat ) {
+		?>
+					<!-- Message. Default to the left -->
+                    <div class="direct-chat-msg doted-border">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left"><?php echo strip_tags($chat->emetteur->nom,'')." ".strip_tags($chat->emetteur->prenom,'')  ?></span>
+                      </div>
+                      <!-- /.direct-chat-info -->
+                      <img alt="iamgurdeeposahan" src=	
+					<?php if ($chat->emetteur->avatar == null){
+		   				echo "images/no-image.png";
+					}
+					else{
+						echo $chat->emetteur->avatar;
+					}?> 
+					class="direct-chat-img"><!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+                        <?php echo strip_tags($chat->post->texte,'')  ?>
+                      </div>
+					  <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-timestamp pull-right"><?php echo strip_tags($chat->post->date->format('Y-m-d H:i:s'),'') ?></span>
+                      </div>
+                      <!-- /.direct-chat-text -->
+                    </div>
+                    <!-- /.direct-chat-msg -->
+          <?php 
+      	}
+      }
+      ?>
+                  </div>
+			</div>
+			<div class="popup-messages-footer">
+			<textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
 
-	echo "		<li class='list-group-item'> <b>"
-		."			<img class='profil_chat' src='images/no-image.png' > "
-		.strip_tags($chat->emetteur->nom,'')
-		." "
-		.strip_tags($chat->emetteur->prenom,'')
-		."		</b></br>"
-		.strip_tags($chat->post->texte,'')
-		."		</b></br>"
-		."		<div style='font-size:10px; text-align:right; color: grey;'>"
-		.strip_tags($chat->post->date->format('Y-m-d H:i:s'),'')
-		."		</div>"
-		."		</li>";
-}
+			</div>
+	  </div>
 
-
-echo "		<li class='list-group-item'> <b>"
-	."			Envoyer message : "
-	."			<textarea rows='4' cols='50' style='width: 90%;'>"
-	."			</textarea>"
-	."			</li>";
-?>
-	</ul>
-</div>
-<!-- By Aurelien -->
 <script>
- function afficher_cacher(id) {
-    if (document.getElementById(id).style.visibility == "hidden") {
-        document.getElementById(id).style.visibility = "visible";
-        document.getElementById('bouton_' + id).innerHTML = 'Cacher le texte';
-    }
-    else {
-        document.getElementById(id).style.visibility = "hidden";
-        document.getElementById('bouton_'+id).innerHTML = 'Afficher le texte';
-    }
-    return true;
-}
+  $(function(){
+$("#addClass").click(function () {
+          $('#qnimate').addClass('popup-box-on');
+            });
+          
+            $("#removeClass").click(function () {
+          $('#qnimate').removeClass('popup-box-on');
+            });
+  })
+
+       $( function() {
+        $("#qnimate").draggable();
+        $("#finalchat").resizable();
+            
+      } );
 </script>
 
