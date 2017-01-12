@@ -12,7 +12,7 @@
 
 		?>
 
-        <div class="col-lg-3 col-md-8 col-sm-12 col-xs-12">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="media">
@@ -38,7 +38,7 @@
 								   echo "<img src='images/rondRouge.png' style='width: 20%;' >";
 								}
 								else{
-									echo "<img src='images/rondVert.png'>";
+									echo "<img src='images/rondVert.png' style='width: 20%;' >";
 								}?> </p>
                             <hr>
                            		<div id="addClass"> <p >
