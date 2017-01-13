@@ -10,7 +10,6 @@
 		<input type="submit" value="Submit" id="submit_login" class="btn btn-primary">
 	</form> 
 
-
 </div>
 
 

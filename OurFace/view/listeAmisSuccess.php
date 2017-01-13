@@ -17,7 +17,7 @@
 			//echo "<li class='list-group-item'><a href='OurFace.php?action=displayFriendWall&friendId=".$oneuser->id."'>".$oneuser->prenom."</a></li>";
 
 			$type = "POST";
-			$data = "action=displayFriendWall&friendId=".$oneuser->id;
+			$data = "friendId=".$oneuser->id;
 
 			echo "<li class='list-group-item'><a onclick=sendRequest('".$type."','".$data."');>".$oneuser->prenom."</a></li>";
 

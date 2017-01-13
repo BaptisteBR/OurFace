@@ -1,5 +1,9 @@
 <!-- BRIOT-RIBEYRE BAPTISTE -->
+<script type="text/javascript">
 
+console.log("heremur");
+
+</script>
 <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
 <?php
 

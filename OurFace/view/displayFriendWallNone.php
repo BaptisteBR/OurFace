@@ -43,12 +43,12 @@ console.log("here");
 									echo "<img src='images/rondVert.png' style='width: 20%;' >";
 								}?> </p>
                             <hr>
-                           		<div id="addClass"> <p >
-         Afficher Chat <img id ="imgNotif" src="images/notif.png">   (1)</p>
+                           		<div id="addClass"> <p>
+         							Afficher Chat <img id ="imgNotif" src="images/notif.png">   (1)</p>
 
 
 
-        </div>
+        						</div>
                             <hr>
                         </div>
                     </div>
