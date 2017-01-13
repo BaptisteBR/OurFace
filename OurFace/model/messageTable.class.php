@@ -7,13 +7,16 @@
 class messageTable {
 
 	public static function getMessagesByUserId($id) {
+
 		$em = dbconnection::getInstance()->getEntityManager();
+
 		$repository = $em->getRepository('message');
 		$messages = $repository->findByEmetteur(array('id' => $id));	
 		
 		if ($messages == false) {
 			echo 'Erreur sql';
 		}
+		
 		return $user; 
 	}
 

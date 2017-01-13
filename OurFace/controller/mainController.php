@@ -14,114 +14,98 @@ class mainController {
 	public static function listeAmis($request, $context) {
 		if (context::getSessionAttribute("user") != null) {
 			$users = utilisateurTable::getUsers();
-			$context->tabuser = $users;
+			$context->users = $users;
 			return context::SUCCESS;
 		}
-		else {
-
-		}
+		$context->error = "listeAmis";
+		return context::ERROR;
 	}
 
 	public static function muraction($request, $context) {
+		if (!empty($_POST["friend"])) {
+			$friend = utilisateurTable::getUserById($_POST["friend"]);
+			$context->friend = $friend;
+			return context::NONE;
+		}
 		if (context::getSessionAttribute("user") != null) {
-			
-			// BUG SESSION
-			//$user = utilisateurTable::getUserById(context::getSessionAttribute('user')->id);
 			$user = utilisateurTable::getUserById(context::getSessionAttribute('user'));
-
-			$context->mavariable=$user;
-
+			$context->user = $user;
 			return context::SUCCESS;
 		}
+		$context->error = "muraction";
+		return context::ERROR;
 	}
 
 	public static function chataction($request, $context) {
-		if (context::getSessionAttribute("user") != null){
-			
-			// BUG SESSION
-			//$user = utilisateurTable::getUserById(context::getSessionAttribute('user')->id);
+		if (context::getSessionAttribute("user") != null) {
 			$user = utilisateurTable::getUserById(context::getSessionAttribute('user'));
-			$context->mavariable=$user;
-
+			$context->user = $user;
 			return context::SUCCESS;
 		}
-		else{
-			
-		}
+		$context->error = "chataction";
+		return context::ERROR;
 
 	}
-
-	public static function userById($request, $context) {
-		$user = utilisateurTable::getUserById(1);
-		if ($user == null) {
-			$context->mavariable = "ID inconnu";
-		}
-		else {
-			$context->mavariable = $user;
-		}
-		return context::SUCCESS;
-	}
-
 
 	public static function profil($request, $context) {
-		if (context::getSessionAttribute("user") != null) {
-			//die(var_dump($context->mavariable->id));
-			
-			// BUG SESSION
-			//$user = utilisateurTable::getUserById(context::getSessionAttribute('user')->id);
-			$user = utilisateurTable::getUserById(context::getSessionAttribute('user'));
 
-			$context->mavariable = $user;
+		//if (!empty($_POST["friend"])) {
+		//	return context::NONE;
+		//}
+		if (context::getSessionAttribute("user") != null) {
+			$user = utilisateurTable::getUserById(context::getSessionAttribute('user'));
+			$context->user = $user;
 			return context::SUCCESS;
 		}
+
+		$context->error = "profil";
+		return context::ERROR;
 	}
 
 
 
 	public static function submit($request, $context) {
 
-		//$user = utilisateurTable::getUserByLoginAndPass($_POST['identifiant'], $_POST['motdepasse']);
-		$user = null;
-		if(context::getSessionAttribute('user') == null) {
-			$user = utilisateurTable::getUserByLoginAndPass($_POST['identifiant'], $_POST['motdepasse']);
+		$user = false;
+
+		if (context::getSessionAttribute("user") == null) {
+
+			if(!empty($_POST["identifiant"]) && !empty($_POST["motdepasse"])) {
+				$user = utilisateurTable::getUserByLoginAndPass($_POST["identifiant"], $_POST["motdepasse"]);
+			}
+			else {
+				$context->error = "submit";
+				return context::ERROR;
+			}
+			
 		}
 		else {
 			$user = utilisateurTable::getUserById(context::getSessionAttribute('user'));
 		}
 
 		if ($user === false) {
-			$context->mavariable = "Identifiant ou mot de passe incorrect";
+			$context->error = "Identifiant ou mot de passe incorrect";
 			return context::ERROR;
 		}
-/*
-		else{
-			context::setSessionAttribute('user',$user);
-			$context->mavarlayout=$user;
 
-			$users=utilisateurTable::getUsers();
-			context::setSessionAttribute('users',$users);
-*/
-		else {
+		context::setSessionAttribute('user', $user->id);
+		$context->user = $user;
+		
+		$users = utilisateurTable::getUsers();
+		$context->users = $users;
+		
+		$chats = chatTable::getChats();
+		$context->chats = $chats;
 
-			// BUG SESSION
-			//context::setSessionAttribute('user', $user);
-			context::setSessionAttribute('user', $user->id);
 
-			$context->mavariable = $user;
-			$users = utilisateurTable::getUsers();
-			context::setSessionAttribute('users', $users);
-
-		}
 		return context::SUCCESS;
 	}
 
 	public static function displayFriendWall($request, $context) {
 
-		die(var_dump("displayFriendWall"));
-
 		$friend = utilisateurTable::getUserById($_POST['friendId']);
 		if($friend === false) {
-			$context->mavariable = "Erreur mainController";
+			$context->user = "Erreur mainController";
 			return context::ERROR;
 		}
 		else {

@@ -4,6 +4,9 @@
     <div class="navbar-header">
 
 <?php
+
+
+
 if(context::getSessionAttribute('user') == null) {
   echo "<a class='navbar-brand' href='OurFace.php?action=connect'>";
 }

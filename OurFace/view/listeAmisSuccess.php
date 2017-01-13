@@ -9,17 +9,14 @@
 
 	<?php
 
-	foreach (context::getSessionAttribute('users') as $oneuser){
+	foreach ($context->users as $user) {
 
-			//echo "<li class='list-group-item'><a href='OurFace.php?action=displayFriendWall&friendId=".$oneuser->id."'>".$oneuser->prenom." ".$oneuser->nom."</a></li>";
-			
-
-			//echo "<li class='list-group-item'><a href='OurFace.php?action=displayFriendWall&friendId=".$oneuser->id."'>".$oneuser->prenom."</a></li>";
 
 			$type = "POST";
-			$data = "action=displayFriendWall&friendId=".$oneuser->id;
+			$action = "muraction";
+			$data = "friend=".$user->id;
 
-			echo "<li class='list-group-item'><a onclick=sendRequest('".$type."','".$data."');>".$oneuser->prenom."</a></li>";
+			echo "<li class='list-group-item'><a onclick=sendRequest('".$type."', '".$action."','".$data."');>".$user->prenom."</a></li>";
 
 
 	 }

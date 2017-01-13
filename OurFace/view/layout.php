@@ -24,10 +24,30 @@
 
       <?php 
     	    if (context::getSessionAttribute("user") != null) {
+
+              
+
+              echo "<div id='profil'>";
+              include("profilSuccess.php");
+              echo "</div>";
+              echo"<div id='mur'>";
+              include("muractionSuccess.php");
+              echo "</div";
+              echo"<div id='amis'>";
+              include("listeAmisSuccess.php");
+              echo "</div";
+              echo"<div id='chat'>";
+              include("chatactionSuccess.php");
+              echo "</div";
+
+              
+
+              /*
         		  include("profilSuccess.php");
               include("muractionSuccess.php");
         		  include("listeAmisSuccess.php");
         		  include("chatactionSuccess.php");
+              */
     	    }
           else{
               include($template_view);

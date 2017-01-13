@@ -16,7 +16,11 @@
 					</div>
 		<?php 		
 		$cpt=0;
-		foreach ( chatTable::getChats() as $chat ) {
+
+
+    foreach ($context->chats as $chat) {
+
+
 			$cpt++;
 				if ($cpt<100){
 

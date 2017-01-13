@@ -2,13 +2,13 @@
 
 		<?php
 
-		$currentUser = null;
-		if(context::getSessionAttribute('friend') != null) {
-			$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('friend'));
-		}
-		else {
-			$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('user'));
-		}
+		$user = null;
+		//if ($context->friend != null) {
+		// 	$user = $context->friend;
+		//}
+		//else {
+		 	$user = $context->user;
+		//}
 
 		?>
 
@@ -18,22 +18,22 @@
                     <div class="media">
                         <div align="center">
                             <img class="thumbnail img-responsive" src=<?php
-								if ($currentUser->avatar == null){
+								if ($user->avatar == null){
 								   echo "images/no-image.png";
 								}
 								else{
-									echo $currentUser->avatar;
+									echo $user->avatar;
 
 								}?> 
 							width="300px" height="300px">
                         </div>
                         <div class="media-body">
                             <hr>
-                            <h3><strong><?php echo $currentUser->nom." ".$currentUser->prenom ?></strong></h3>
+                            <h3><strong><?php echo $user->nom." ".$user->prenom ?></strong></h3>
                             <hr>
                             <h3><strong>Status</strong></h3>
                             <p >		<?php 
-								if ($currentUser->statut == null){
+								if ($user->statut == null){
 								   
 								   echo "<img src='images/rondRouge.png' style='width: 20%;' >";
 								}

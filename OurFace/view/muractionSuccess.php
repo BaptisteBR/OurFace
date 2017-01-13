@@ -3,6 +3,7 @@
 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 <?php
 
+/*
 $currentUser = null;
 if(context::getSessionAttribute('friend') != null) {
 	$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('friend'));
@@ -12,19 +13,20 @@ else {
 	$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('user'));
 	//echo '<form action="OurFace.php?action=publishMessageOnWall" method="post">';
 }
+*/
 
-// BUG SESSION
-//foreach ( $context->muractionVar->messages as $message )
+$currentUser = null;
+if ($context->friend != null) {
+    $currentUser = $context->friend;
+}
+else {
+    $currentUser = $context->user;
+}
+
+
 foreach ($currentUser->messages as $message) {
 
 ?>
-
-	<!--<form>
-	<form action="OurFace.php?action=publishMessageOnWall" method="post">
-		<p>Message :<input type="textarea" name="message" placeholder="Ecrivez votre message ..." /></p>
-	 	<p><input type="submit" value="Publier"></p>
-	</form>-->
-
 
 	<div class="panel panel-default">
         <div class="panel-body">
