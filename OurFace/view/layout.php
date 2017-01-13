@@ -18,26 +18,25 @@
       <div class="row">
 
 <?php 
-  echo "<div id='menu'>";
-  include("menuSuccess.php");
-  echo "</div>";
-  if (context::getSessionAttribute("user") != null) {
-    echo "<div id='profil'>";
-    include("profilSuccess.php");
-    echo "</div>";
-    echo"<div id='mur'>";
-    include("muractionSuccess.php");
-    echo "</div";
-    echo"<div id='amis'>";
-    include("listeAmisSuccess.php");
-    echo "</div";
-    //echo"<div id='qnimate' class='popup-box chat-popup'>";
-    include("chatactionSuccess.php");
-    //echo "</div";
+
+  include("menu.php");
+
+  if (context::getSessionAttribute("user") == null) {
+    include($template_view["connect"]);
   }
   else {
-    include($template_view);
+    echo "<div id='profil'>";
+    include($template_view["profil"]);
+    echo "</div>";
+    echo "<div id='mur'>";
+    include($template_view["mur"]);
+    echo "</div>";
+    echo "<div id='amis'>";
+    include($template_view["amis"]);
+    echo "</div>";
+    include($template_view["chat"]);
   }
+
 ?>
 
       </div>

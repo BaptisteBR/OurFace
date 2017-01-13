@@ -6,6 +6,8 @@ class context{
     const NONE="None";
     private $name;
     private static $instance=null;
+
+    public $views = null;
 	
 	 /**
      * @return context

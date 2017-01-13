@@ -68,13 +68,6 @@ body{
 
 @media (min-width: 400px) {
 
-	#profil{
-		position: block; 
-		left: 0; 
-		width: 20%; 
-		margin-left: 10px;
-	}
-
 	/* CSS mur */
 	#finalmur{
 		display: block;
@@ -170,14 +163,6 @@ body{
 }
 
 @media (max-width: 400px) {
-
-/*CSS profil */
-	#profil{
-		display: block;
-		left: 0; 
-		width: 90%; 
-		margin-left: 5%;
-	}
 
 /* CSS Mur */
 	#finalmur{
@@ -545,23 +530,6 @@ body
     padding: 5px 10px;
     position: relative;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .mainbody {

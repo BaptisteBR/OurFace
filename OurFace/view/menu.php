@@ -4,11 +4,11 @@
     <div class="navbar-header">
 
 <?php
-  if(context::getSessionAttribute('user') == null) {
-  echo "<a class='navbar-brand' href='OurFace.php?action=connect'>";
+  if ($context->user == null) {
+    echo "<a class='navbar-brand' href='OurFace.php?action=connect'>";
   }
   else {
-  echo "<a class='navbar-brand' href='OurFace.php?action=submit'>";
+    echo "<a class='navbar-brand' href='OurFace.php?action=submit'>";
   }
 ?>
 
@@ -16,7 +16,7 @@
       </a>
 
 <?php
-  if (context::getSessionAttribute("user")!=null){
+  if ($context->user != null) {
 ?>
 
       <a class="navbar-brand" href="OurFace.php?action=logout">Déconnexion</a>
