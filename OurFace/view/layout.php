@@ -1,117 +1,66 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>OurFace</title>
-   	<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   	<script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OurFace</title>
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
     <link rel="stylesheet" href="lib/cssLayout/cssLayout.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-</head>
-<body>
-  <div id="total_container" class='mainbody container-fluid'>
-    <div class="row">
-      <div id="menu">
-		  <?php 
-		      include("menuSuccess.php");
-		  ?>
-	    </div>
+  </head>
+  <body>
+    <div id="total_container" class='mainbody container-fluid'>
+      <div class="row">
 
-      <?php 
-    	    if (context::getSessionAttribute("user") != null) {
+<?php 
+  echo "<div id='menu'>";
+  include("menuSuccess.php");
+  echo "</div>";
+  if (context::getSessionAttribute("user") != null) {
+    echo "<div id='profil'>";
+    include("profilSuccess.php");
+    echo "</div>";
+    echo"<div id='mur'>";
+    include("muractionSuccess.php");
+    echo "</div";
+    echo"<div id='amis'>";
+    include("listeAmisSuccess.php");
+    echo "</div";
+    //echo"<div id='qnimate' class='popup-box chat-popup'>";
+    include("chatactionSuccess.php");
+    //echo "</div";
+  }
+  else {
+    include($template_view);
+  }
+?>
 
-
-              /*
-
-              echo "<div id='profil'>";
-              include("profilSuccess.php");
-              echo "</div>";
-              echo"<div id='mur'>";
-              include("muractionSuccess.php");
-              echo "</div";
-              echo"<div id='amis'>";
-              include("listeAmisSuccess.php");
-              echo "</div";
-              echo"<div id='chat'>";
-              include("chatactionSuccess.php");
-              echo "</div";
-
-              
-
-              
-        		  include("profilSuccess.php");
-
-              */
-
-        ?>
-             <div id="profilAjaxId">
-        		<?php   include("profilSuccess.php");?>
-          </div>
-          <?php 
-              include("muractionSuccess.php");
-        		  include("listeAmisSuccess.php");
-        		  include("chatactionSuccess.php");
-    	    }
-          else{
-              include($template_view);
-          }
-      ?>
-      
-  </div>
-</div>
+      </div>
+    </div>
     <script>
-      $( function() {
+
+      $(function(){
         $("#finalchat").draggable();
         $("#finalchat").resizable();
-            
-      } );
-      $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-      })
-      $(function () {
-        $('[data-toggle="popover"]').popover()
-      })
-
-
-function sendRequest(type, data){
-
-  console.log('sendRequest');
-
-  $.ajax({
-    type: type,
-    url: "OurFace_Ajax.php?action=displayFriendWall&friendId=40",
-    data: data,
-    dataType: 'html'
-  }).done(function(request,status){
-    console.log("retourdata");
-    console.log("request : "+request);
-    console.log(status);
-    var profilAjaxId=document.getElementById("profilAjaxId");
-    profilAjaxId.innerHTML=request;
-    
-  }).fail(function(request){
-    //errorCallback(request);
-  });
-
-}
-
-
+      });
+      $(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+      $(function(){
+        $('[data-toggle="popover"]').popover();
+      });
 
     </script>
-
     <script src="lib/js/ajax.js"></script>
-
-</body>
-
+  </body>
 </html>
 
 <?php
-
-    // Permet de supprimer l'identifiant correspondant à un ami
-    context::setSessionAttribute('friend', null);
+  // Permet de supprimer l'identifiant correspondant à un ami
+  context::setSessionAttribute('friend', null);
 ?>

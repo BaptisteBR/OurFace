@@ -5,14 +5,14 @@
     /*
     $currentUser = null;
     if(context::getSessionAttribute('friend') != null) {
-    	$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('friend'));
-    	//echo '<form action="OurFace.php?action=publishMessageOnWall&friendId='.$currentUser->id.'" method="post">';
+	   $currentUser = utilisateurTable::getUserById(context::getSessionAttribute('friend'));
+	   //echo '<form action="OurFace.php?action=publishMessageOnWall&friendId='.$currentUser->id.'" method="post">';
     }
     else {
-    	$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('user'));
-    	//echo '<form action="OurFace.php?action=publishMessageOnWall" method="post">';
+	   $currentUser = utilisateurTable::getUserById(context::getSessionAttribute('user'));
+	   //echo '<form action="OurFace.php?action=publishMessageOnWall" method="post">';
     }
-    */
+*/
     $user = null;
     if ($context->friend != null) {
         $user = $context->friend;
@@ -30,10 +30,10 @@
                     <img class="media-object img-circle" src=
 
 <?php
-    if ($user->avatar == null){
+    if ($user->avatar == null) {
         echo "images/no-image.png";
     }
-    else{
+    else {
         echo $user->avatar;
     }
 ?>

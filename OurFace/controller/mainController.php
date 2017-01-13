@@ -15,22 +15,32 @@ class mainController {
 		if (context::getSessionAttribute("user") != null) {
 			$users = utilisateurTable::getUsers();
 			$context->users = $users;
-			return context::SUCCESS;
+			
+			return context::NONE;
+
+			//return context::SUCCESS;
 		}
 		$context->error = "listeAmis";
 		return context::ERROR;
 	}
 
 	public static function muraction($request, $context) {
-		if (!empty($_POST["friend"])) {
+		
+		if ($_POST["friend"] != null) {
 			$friend = utilisateurTable::getUserById($_POST["friend"]);
 			$context->friend = $friend;
+			context::setSessionAttribute("friend", $friend->id);
 			return context::NONE;
 		}
+		
 		if (context::getSessionAttribute("user") != null) {
+			var_dump("user");
 			$user = utilisateurTable::getUserById(context::getSessionAttribute('user'));
 			$context->user = $user;
-			return context::SUCCESS;
+
+			return context::NONE;
+
+			//return context::SUCCESS;
 		}
 		$context->error = "muraction";
 		return context::ERROR;
@@ -40,7 +50,10 @@ class mainController {
 		if (context::getSessionAttribute("user") != null) {
 			$user = utilisateurTable::getUserById(context::getSessionAttribute('user'));
 			$context->user = $user;
-			return context::SUCCESS;
+			
+			return context::NONE;
+
+			//return context::SUCCESS;
 		}
 		$context->error = "chataction";
 		return context::ERROR;
@@ -49,13 +62,18 @@ class mainController {
 
 	public static function profil($request, $context) {
 
-		//if (!empty($_POST["friend"])) {
-		//	return context::NONE;
-		//}
+		if ($_POST["friend"] != null) {
+			$friend = utilisateurTable::getUserById($_POST["friend"]);
+			$context->friend = $friend;
+			return context::NONE;
+		}
 		if (context::getSessionAttribute("user") != null) {
 			$user = utilisateurTable::getUserById(context::getSessionAttribute('user'));
 			$context->user = $user;
-			return context::SUCCESS;
+			
+			return context::NONE;
+
+			//return context::SUCCESS;
 		}
 
 		$context->error = "profil";
@@ -119,6 +137,7 @@ class mainController {
 			$users = utilisateurTable::getUsers();
 			context::setSessionAttribute('users', $users);
 		}
+		
 		return context::NONE;
 	}
 

@@ -1,6 +1,6 @@
 <?php
 
-if(!isset($_SESSION)) {
+if (!isset($_SESSION)) {
 	session_start();
 }
 
@@ -14,7 +14,7 @@ require_once $nameApp.'/controller/mainController.php';
 //action par défaut
 $action = "connect";
 
-if(key_exists("action", $_REQUEST))
+if (key_exists("action", $_REQUEST))
 	$action =  $_REQUEST['action'];
 
 $context = context::getInstance();
@@ -23,13 +23,12 @@ $context->init($nameApp);
 $view = $context->executeAction($action, $_REQUEST);
 
 //traitement des erreurs de bases, reste a traiter les erreurs d'inclusion
-if($view===false){
+if ($view === false) {
 	echo "Une grave erreur s'est produite, il est probable que l'action ".$action." n'existe pas ...";
 	die;
 }
 
-//inclusion du layout qui va lui meme inclure le template view
-elseif($view==context::NONE){
+elseif ($view == context::NONE) {
 	include($nameApp."/view/".$action.$view.".php");
 }
 

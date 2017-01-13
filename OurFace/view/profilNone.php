@@ -18,13 +18,13 @@
 					<img class="thumbnail img-responsive" src=
 
 <?php
-	if ($user->avatar == null) {
+	if ($user->avatar == null){
 		echo "images/no-image.png";
 	}
 	else {
 		echo $user->avatar;
 	}
-?>
+?> 
 
 					width="300px" height="300px">
 				</div>
