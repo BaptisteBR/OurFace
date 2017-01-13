@@ -1,6 +1,10 @@
 <!-- BRIOT-RIBEYRE BAPTISTE -->
+<script type="text/javascript">
 
-<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+console.log("heremur");
+
+</script>
+<div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
 <?php
 
 /*
@@ -22,8 +26,6 @@ if ($context->friend != null) {
 else {
     $currentUser = $context->user;
 }
-
-
 foreach ($currentUser->messages as $message) {
 
 ?>
@@ -70,13 +72,13 @@ foreach ($currentUser->messages as $message) {
                 <div class="pull-left">
                     <a href="#">
                         <img class="media-object img-circle" src=<?php
-            		if ($currentUser->avatar == null){
-            		   echo "images/no-image.png";
-            		}
-            		else{
-            			echo $currentUser->avatar;
+                		if ($currentUser->avatar == null){
+                		   echo "images/no-image.png";
+                		}
+                		else{
+                			echo $currentUser->avatar;
 
-            		}?> width="35px" height="35px" style="margin-left:3px; margin-right:-5px;">
+                		}?> width="35px" height="35px" style="margin-left:3px; margin-right:-5px;">
                     </a>
                 </div>
                 <div class="media-body">

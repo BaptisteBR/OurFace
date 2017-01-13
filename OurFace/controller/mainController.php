@@ -97,12 +97,18 @@ class mainController {
 		$chats = chatTable::getChats();
 		$context->chats = $chats;
 
+		/*
+		else {
+			context::setSessionAttribute('user', $user->id);
+			$context->mavariable = $user;
+			$users = utilisateurTable::getUsers();
+			context::setSessionAttribute('users', $users);
+			*/
 
 		return context::SUCCESS;
 	}
 
 	public static function displayFriendWall($request, $context) {
-
 		$friend = utilisateurTable::getUserById($_POST['friendId']);
 		if($friend === false) {
 			$context->user = "Erreur mainController";

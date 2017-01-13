@@ -50,8 +50,10 @@
 html,body{
 	height: 100%;
 	width: 100%;
+
 }
 body{
+    background : #f0f0f0;
   /*height: 80%;*/
   /*width: 100%;*/
   /*

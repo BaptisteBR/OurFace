@@ -3,25 +3,20 @@
   <div class="container-fluid">
     <div class="navbar-header">
 
-<?php
 
-
-
-if(context::getSessionAttribute('user') == null) {
-  echo "<a class='navbar-brand' href='OurFace.php?action=connect'>";
-}
-else {
-  echo "<a class='navbar-brand' href='OurFace.php?action=submit'>";
-}
-?>
-
-
-        <img alt="OurFace" src="">
+    
+           <?php
+      if(context::getSessionAttribute('user') == null) {
+        echo "<a class='navbar-brand' href='OurFace.php?action=connect'>";
+      }
+      else {
+        echo "<a class='navbar-brand' href='OurFace.php?action=submit'>";
+      }
+      ?>
+          <img alt="OurFace" src="">
       </a>
 
-
-      <a class='navbar-brand' href=''> Amis </a>
-            <?php
+      <?php
       if (context::getSessionAttribute("user")!=null){
       ?>
       <a class="navbar-brand" href="OurFace.php?action=logout">Deconnection</a>
@@ -32,8 +27,8 @@ else {
          <?php
       }
       ?>
-      
-
     </div>
-  </div>
+
+    
+  </div><!-- /.container-fluid -->
 </nav>

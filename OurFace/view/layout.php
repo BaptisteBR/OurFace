@@ -25,7 +25,8 @@
       <?php 
     	    if (context::getSessionAttribute("user") != null) {
 
-              
+
+              /*
 
               echo "<div id='profil'>";
               include("profilSuccess.php");
@@ -42,12 +43,19 @@
 
               
 
-              /*
+              
         		  include("profilSuccess.php");
+
+              */
+
+        ?>
+             <div id="profilAjaxId">
+        		<?php   include("profilSuccess.php");?>
+          </div>
+          <?php 
               include("muractionSuccess.php");
         		  include("listeAmisSuccess.php");
         		  include("chatactionSuccess.php");
-              */
     	    }
           else{
               include($template_view);
@@ -68,6 +76,32 @@
       $(function () {
         $('[data-toggle="popover"]').popover()
       })
+
+
+function sendRequest(type, data){
+
+  console.log('sendRequest');
+
+  $.ajax({
+    type: type,
+    url: "OurFace_Ajax.php?action=displayFriendWall&friendId=40",
+    data: data,
+    dataType: 'html'
+  }).done(function(request,status){
+    console.log("retourdata");
+    console.log("request : "+request);
+    console.log(status);
+    var profilAjaxId=document.getElementById("profilAjaxId");
+    profilAjaxId.innerHTML=request;
+    
+  }).fail(function(request){
+    //errorCallback(request);
+  });
+
+}
+
+
+
     </script>
 
     <script src="lib/js/ajax.js"></script>

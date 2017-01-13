@@ -4,13 +4,13 @@ console.log("here");
 </script>
 		<?php
 
-		$user = null;
-		//if ($context->friend != null) {
-		// 	$user = $context->friend;
-		//}
-		//else {
-		 	$user = $context->user;
-		//}
+		$currentUser = null;
+		if(context::getSessionAttribute('friend') != null) {
+			$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('friend'));
+		}
+		else {
+			$currentUser = utilisateurTable::getUserById(context::getSessionAttribute('user'));
+		}
 
 		?>
 
@@ -20,22 +20,22 @@ console.log("here");
                     <div class="media">
                         <div align="center">
                             <img class="thumbnail img-responsive" src=<?php
-								if ($user->avatar == null){
+								if ($currentUser->avatar == null){
 								   echo "images/no-image.png";
 								}
 								else{
-									echo $user->avatar;
+									echo $currentUser->avatar;
 
 								}?> 
 							width="300px" height="300px">
                         </div>
                         <div class="media-body">
                             <hr>
-                            <h3><strong><?php echo $user->nom." ".$user->prenom ?></strong></h3>
+                            <h3><strong><?php echo $currentUser->nom." ".$currentUser->prenom ?></strong></h3>
                             <hr>
                             <h3><strong>Status</strong></h3>
                             <p >		<?php 
-								if ($user->statut == null){
+								if ($currentUser->statut == null){
 								   
 								   echo "<img src='images/rondRouge.png' style='width: 20%;' >";
 								}
@@ -43,12 +43,12 @@ console.log("here");
 									echo "<img src='images/rondVert.png' style='width: 20%;' >";
 								}?> </p>
                             <hr>
-                           		<div id="addClass"> <p >
-         Afficher Chat <img id ="imgNotif" src="images/notif.png">   (1)</p>
+                           		<div id="addClass"> <p>
+         							Afficher Chat <img id ="imgNotif" src="images/notif.png">   (1)</p>
 
 
 
-        </div>
+        						</div>
                             <hr>
                         </div>
                     </div>
