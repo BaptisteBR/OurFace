@@ -1,16 +1,15 @@
 <?php
 
+if(!isset($_SESSION)) {
+	session_start();
+}
+
 //nom de l'application
 $nameApp = "OurFace";
 
 // Inclusion des classes et librairies
 require_once 'lib/core.php';
 require_once $nameApp.'/controller/mainController.php';
-
-
-if(!isset($_SESSION)) {
-	session_start();
-}
 
 //action par défaut
 //$action = "index";
