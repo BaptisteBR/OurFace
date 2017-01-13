@@ -50,6 +50,8 @@
       })
     </script>
 
+    <script src="lib/js/ajax.js"></script>
+
 </body>
 
 </html>

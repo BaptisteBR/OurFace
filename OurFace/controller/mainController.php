@@ -116,7 +116,10 @@ class mainController {
 	}
 
 	public static function displayFriendWall($request, $context) {
-		$friend = utilisateurTable::getUserById($_GET['friendId']);
+
+		die(var_dump("displayFriendWall"));
+
+		$friend = utilisateurTable::getUserById($_POST['friendId']);
 		if($friend === false) {
 			$context->mavariable = "Erreur mainController";
 			return context::ERROR;
@@ -126,7 +129,7 @@ class mainController {
 			$users = utilisateurTable::getUsers();
 			context::setSessionAttribute('users', $users);
 		}
-		return context::SUCCESS;
+		return context::NONE;
 	}
 
 	public static function publishMessageOnWall($request, $context) {
