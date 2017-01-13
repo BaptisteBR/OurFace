@@ -13,18 +13,9 @@ else {
 	//echo '<form action="OurFace.php?action=publishMessageOnWall" method="post">';
 }
 
-// BUG SESSION
-//foreach ( $context->muractionVar->messages as $message )
 foreach ($currentUser->messages as $message) {
 
 ?>
-
-	<!--<form>
-	<form action="OurFace.php?action=publishMessageOnWall" method="post">
-		<p>Message :<input type="textarea" name="message" placeholder="Ecrivez votre message ..." /></p>
-	 	<p><input type="submit" value="Publier"></p>
-	</form>-->
-
 
 	<div class="panel panel-default">
         <div class="panel-body">
@@ -68,13 +59,13 @@ foreach ($currentUser->messages as $message) {
                 <div class="pull-left">
                     <a href="#">
                         <img class="media-object img-circle" src=<?php
-            		if ($currentUser->avatar == null){
-            		   echo "images/no-image.png";
-            		}
-            		else{
-            			echo $currentUser->avatar;
+                		if ($currentUser->avatar == null){
+                		   echo "images/no-image.png";
+                		}
+                		else{
+                			echo $currentUser->avatar;
 
-            		}?> width="35px" height="35px" style="margin-left:3px; margin-right:-5px;">
+                		}?> width="35px" height="35px" style="margin-left:3px; margin-right:-5px;">
                     </a>
                 </div>
                 <div class="media-body">
